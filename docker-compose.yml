@@ -1,0 +1,17 @@
+version: '2'
+volumes:
+  learning-mysql-data:
+    driver: local
+
+services:
+  learning-mysql:
+    image: mysql:5.7
+    container_name: learning-mysql
+    volumes:
+      - learning-mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=learning
